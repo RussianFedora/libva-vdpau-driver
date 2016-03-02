@@ -1,6 +1,6 @@
 Name:           libva-vdpau-driver
 Version:        0.7.4
-Release:        13.1%{?dist}
+Release:        10%{?dist}
 Summary:        HW video decode support for VDPAU platforms
 License:        GPLv2+
 URL:            http://cgit.freedesktop.org/vaapi/vdpau-driver
@@ -48,23 +48,11 @@ find %{buildroot} -name '*.la' -delete
 %{_libdir}/dri/*.so
 
 %changelog
-* Wed Mar  2 2016 Arkady L. Shane <ashejn@russianfedora.pro> - 0.7.4-13.1.R
-- apply patch
-
-* Wed Mar  2 2016 Arkady L. Shane <ashejn@russianfedora.pro> - 0.7.4-13.R
+* Wed Mar  2 2016 Arkady L. Shane <ashejn@russianfedora.pro> - 0.7.4-10.R
 - fix Bug: https://bugs.freedesktop.org/show_bug.cgi?id=58836
   and Bug-Debian: http://bugs.debian.org/748294
   also chromium with enabled vaapi support does not crash on NVIDIA
   drivers, just does not work:)
-
-* Fri Nov 06 2015 Nicolas Chauvet <kwizart@gmail.com> - 0.7.4-13
-- Revert symlinks - should be handled by mesa rhbz#1271842
-
-* Thu Sep 24 2015 Nicolas Chauvet <kwizart@gmail.com> - 0.7.4-12
-- Add symlinks for radeonsi,r600,nouveau - rhbz#1264499
-
-* Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.7.4-11
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
 * Sat Oct 25 2014 Nicolas Chauvet <kwizart@gmail.com> - 0.7.4-10
 - Fix build with newer libva
