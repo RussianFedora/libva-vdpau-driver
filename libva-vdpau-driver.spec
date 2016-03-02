@@ -47,7 +47,7 @@ find %{buildroot} -name '*.la' -delete
 %{_libdir}/dri/*.so
 
 %changelog
-* Wed Mar  2 2016 Arkady L. Shane <ashejn@russianfedora.pro> - 0.7.4-13.R
+* Wed Mar  2 2016 Arkady L. Shane <ashejn@russianfedora.pro> - 0.7.4-14.R
 - fix Bug: https://bugs.freedesktop.org/show_bug.cgi?id=58836
   and Bug-Debian: http://bugs.debian.org/748294
   also chromium with enabled vaapi support does not crash on NVIDIA
