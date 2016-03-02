@@ -8,6 +8,9 @@ Source0:        http://www.freedesktop.org/software/vaapi/releases/%{name}/%{nam
 Patch0:         %{name}-0.7.4-glext-85.patch
 Patch1:         %{name}-0.7.4-drop-h264-api.patch
 Patch2:         %{name}-0.7.4-fix_type.patch
+# fix Bug: https://bugs.freedesktop.org/show_bug.cgi?id=58836
+# and Bug-Debian: http://bugs.debian.org/748294
+Patch3:         sigfpe-crash.patch
 
 #BuildRequires: libtool
 BuildRequires:  libva-devel
@@ -44,6 +47,12 @@ find %{buildroot} -name '*.la' -delete
 %{_libdir}/dri/*.so
 
 %changelog
+* Wed Mar  2 2016 Arkady L. Shane <ashejn@russianfedora.pro> - 0.7.4-13.R
+- fix Bug: https://bugs.freedesktop.org/show_bug.cgi?id=58836
+  and Bug-Debian: http://bugs.debian.org/748294
+  also chromium with enabled vaapi support does not crash on NVIDIA
+  drivers, just does not work:)
+
 * Fri Nov 06 2015 Nicolas Chauvet <kwizart@gmail.com> - 0.7.4-13
 - Revert symlinks - should be handled by mesa rhbz#1271842
 
