@@ -1,6 +1,6 @@
 Name:           libva-vdpau-driver
 Version:        0.7.4
-Release:        16%{?dist}
+Release:        18%{?dist}
 Summary:        HW video decode support for VDPAU platforms
 License:        GPLv2+
 URL:            http://cgit.freedesktop.org/vaapi/vdpau-driver
@@ -48,6 +48,12 @@ find %{buildroot} -name '*.la' -delete
 %{_libdir}/dri/*.so
 
 %changelog
+* Thu Aug 03 2017 Fedora Release Engineering <releng@fedoraproject.org> - 0.7.4-18.R
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Binutils_Mass_Rebuild
+
+* Wed Jul 26 2017 Fedora Release Engineering <releng@fedoraproject.org> - 0.7.4-17.R
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
 * Wed Mar 29 2017 Arkady L. Shane <ashejn@russianfedora.pro> - 0.7.4-16.R
 - bump release
 
