@@ -1,6 +1,6 @@
 Name:           libva-vdpau-driver
 Version:        0.7.4
-Release:        18%{?dist}
+Release:        19%{?dist}.R
 Summary:        HW video decode support for VDPAU platforms
 License:        GPLv2+
 URL:            http://cgit.freedesktop.org/vaapi/vdpau-driver
@@ -11,6 +11,9 @@ Patch2:         %{name}-0.7.4-fix_type.patch
 # fix Bug: https://bugs.freedesktop.org/show_bug.cgi?id=58836
 # and Bug-Debian: http://bugs.debian.org/748294
 Patch3:         sigfpe-crash.patch
+# patches from https://github.com/saiarcot895/chromium-ubuntu-build/issues/13
+Patch4:		implement-vaquerysurfaceattributes.patch
+Patch5:		fallback-x.patch
 
 #BuildRequires: libtool
 BuildRequires:  libva-devel
@@ -30,6 +33,8 @@ VDPAU Backend for Video Acceleration (VA) API.
 %endif
 %patch2 -p1 -b .fix_type
 %patch3 -p1 -b .sigfpe-crash
+%patch4 -p1 -b .implement-vaquerysurfaceattributes
+%patch5 -p1 -b .fallxack-x
 
 %build
 %configure \
@@ -48,6 +53,12 @@ find %{buildroot} -name '*.la' -delete
 %{_libdir}/dri/*.so
 
 %changelog
+* Thu Jan 25 2018 Arkady L. Shane <ashejn@russianfedora.pro> - 0.7.4-19.R
+- apply patches from https://github.com/saiarcot895/chromium-ubuntu-build/issues/13
+
+* Tue Sep 19 2017 Nicolas Chauvet <kwizart@gmail.com> - 0.7.4-19
+- Add patch for https://bugs.freedesktop.org/58836
+
 * Thu Aug 03 2017 Fedora Release Engineering <releng@fedoraproject.org> - 0.7.4-18.R
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Binutils_Mass_Rebuild
 
